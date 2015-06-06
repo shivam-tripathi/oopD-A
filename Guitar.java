@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class Guitar
 {
     private String serialNumber, model, builder, type, backwood, topwood;
@@ -31,28 +34,33 @@ public class Guitar
         return price;
     }
 
-    public setPrice(float newPrice)
+    public void setPrice(float newPrice)
     {
         this.price = newPrice;
     }
 
-    public getModel()
+    public String getModel()
     {
         return model;
     }
 
-     public getType()
+    public String getBuilder()
+    {
+        return builder;
+    }
+
+    public String getType()
     {
         return type;
     }
 
-     public getBackwood()
+    public String getBackwood()
     {
         return backwood;
     }
 
-     public getTopwood()
+    public String getTopwood()
     {
-        return topwood
+        return topwood;
     }
 }
