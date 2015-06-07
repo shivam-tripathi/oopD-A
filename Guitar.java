@@ -7,7 +7,7 @@ public class Guitar
     private double price;
     GuitarSpec spec;
 
-    public Guitar(String serialNumber,
+   /* public Guitar(String serialNumber,
                 String model,
                 String builder,
                 String type,
@@ -15,11 +15,14 @@ public class Guitar
                 String topwood,
                 double price,
                 int numString)
+                */
+
+    public Guitar(String serialNumber, GuitarSpec spec, double price)
     {
         this.serialNumber = serialNumber;
+        this.spec = spec;
         this.price = price;
-        spec = new GuitarSpec(model, builder, type, backwood, topwood,
-            numString);
+        //new GuitarSpec(model, builder, type, backwood, topwood, numString);
 
     }
 

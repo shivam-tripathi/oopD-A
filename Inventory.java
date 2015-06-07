@@ -28,14 +28,15 @@ public class Inventory
                 double price,
                 int numStrings)
     {
+        GuitarSpec spec = new GuitarSpec(model,
+                                        builder,
+                                        type,
+                                        backwood,
+                                        topwood,
+                                        numStrings);
         Guitar guitar = new Guitar(serialNumber,
-                                model,
-                                builder,
-                                type,
-                                backwood,
-                                topwood,
-                                price,
-                                numStrings);
+                                spec,
+                                price);
         guitars.add(guitar);
 
     }
