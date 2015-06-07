@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Guitar
 {
-    private String serialNumber, model, type, backwood, topwood;
-    String builder;
+    private String serialNumber;
     private double price;
+    GuitarSpec spec;
     public Guitar(String serialNumber,
                 String model,
                 String builder,
@@ -15,12 +15,8 @@ public class Guitar
                 double price)
     {
         this.serialNumber = serialNumber;
-        this.model = model;
-        this.builder = builder;
-        this.type = type;
-        this.backwood = backwood;
-        this.topwood = topwood;
         this.price = price;
+        spec = new GuitarSpec(model, builder, type, backwood, topwood);
 
     }
 
@@ -39,29 +35,8 @@ public class Guitar
         this.price = newPrice;
     }
 
-    public String getModel()
+    public GuitarSpec getSpec()
     {
-        return model;
+        return this.spec;
     }
-
-    public String getBuilder()
-    {
-        return builder;
-    }
-
-    public String getType()
-    {
-        return type;
-    }
-
-    public String getBackwood()
-    {
-        return backwood;
-    }
-
-    public String getTopwood()
-    {
-        return topwood;
-    }
-
 }
