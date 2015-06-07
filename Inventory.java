@@ -25,7 +25,8 @@ public class Inventory
                 String type,
                 String backwood,
                 String topwood,
-                double price)
+                double price,
+                int numStrings)
     {
         Guitar guitar = new Guitar(serialNumber,
                                 model,
@@ -33,7 +34,8 @@ public class Inventory
                                 type,
                                 backwood,
                                 topwood,
-                                price);
+                                price,
+                                numStrings);
         guitars.add(guitar);
 
     }
@@ -50,7 +52,7 @@ public class Inventory
         {
             Guitar guitar = (Guitar)i.next();
             // type casting into object
-            if (guitar.getSerialNumber().equals(serialNumber)) // object.variable
+            if (guitar.getSerialNumber().equals(serialNumber)) //object.variable
             {
                 return guitar;
             }
@@ -60,11 +62,6 @@ public class Inventory
 
     public List search(GuitarSpec searchGuitar)
     {
-        String builder = searchGuitar.getBuilder();
-        String type = searchGuitar.getType();
-        String backwood = searchGuitar.getBackwood();
-        String topwood = searchGuitar.getTopwood();
-        String model = searchGuitar.getModel();
 
         List foundGuitars = new LinkedList();
 
@@ -73,17 +70,9 @@ public class Inventory
             Guitar guitar = (Guitar)i.next();
             GuitarSpec spec = guitar.getSpec();
 
-            if((builder!=null) && !(builder.equals("")) && !(builder.equalsIgnoreCase(spec.getBuilder())))
-                continue;
-            if((type!=null) && !(type.equals("")) && !(type.equalsIgnoreCase(spec.getType())))
-                continue;
-            if((backwood!=null) && !(backwood.equals("")) && !(backwood.equalsIgnoreCase(spec.getBackwood())))
-                continue;
-            if((topwood!=null) && !(topwood.equals("")) && !(topwood.equalsIgnoreCase(spec.getTopwood())))
-                continue;
-            if((model!=null) && !(model.equals("")) && !(model.equalsIgnoreCase(spec.getModel())))
-                continue;
-            foundGuitars.add(guitar);
+            if (spec.matches(searchGuitar))
+                foundGuitars.add(guitar);
+
         }
         return foundGuitars;
     }

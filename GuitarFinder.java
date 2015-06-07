@@ -7,18 +7,23 @@ public class GuitarFinder
         Inventory inventory = new Inventory();
         initialiseInventory(inventory);
 
-        GuitarSpec whatErinLikes = new GuitarSpec("fender", "Stratocastor", "electric", "Alder", "Alder");
+        GuitarSpec whatErinLikes = new GuitarSpec("fender", "Stratocastor",
+            "electric", "Alder", "Alder", 12);
+
         List foundGuitars = inventory.search(whatErinLikes);
+
         if(!(foundGuitars.isEmpty()))
+        {
+            System.out.println("Erin, you might like this");
             for( Iterator i = foundGuitars.iterator(); i.hasNext();)
             {
                 Guitar guitar = (Guitar)i.next();
                if (guitar != null )
                 {
-                    System.out.println("Erin, you might like this");
                     showGuitar(guitar);
                 }
             }
+        }
         else
             {
                 System.out.println("Sorry, Erin we have nothing for you");
@@ -26,8 +31,10 @@ public class GuitarFinder
     }
     public static void initialiseInventory(Inventory inventory)
     {
-        inventory.addGuitar("", "fender", "Stratocastor", "electric", "Alder", "Alder", 0);
-        inventory.addGuitar("", "fender", "Stratocastor", "electric", "Alder", "Alder", 1723232);
+        inventory.addGuitar("", "fender", "Stratocastor", "electric", "Alder",
+            "Alder", 0, 12);
+        inventory.addGuitar("", "fender", "Stratocastor", "electric", "Alder",
+            "Alder", 1723232, 16);
     }
     public static void showGuitar(Guitar guitar)
     {
@@ -39,6 +46,8 @@ public class GuitarFinder
         String topwood = spec.getTopwood();
         String model = spec.getModel();
         double price = guitar.getPrice();
-        System.out.println("\n\t"+builder+"\t"+type+"\t"+backwood+"\t"+topwood+"\t"+model+"\t"+price);
+        int numString = spec.getNumString();
+        System.out.println("\t"+builder+"\t"+type+"\t"+backwood+"\t"+topwood+
+            "\t"+model+"\t"+numString+"\t"+price+"\n");
     }
 }
