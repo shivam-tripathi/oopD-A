@@ -7,16 +7,6 @@ public class Guitar
     private double price;
     GuitarSpec spec;
 
-   /* public Guitar(String serialNumber,
-                String model,
-                String builder,
-                String type,
-                String backwood,
-                String topwood,
-                double price,
-                int numString)
-                */
-
     public Guitar(String serialNumber, GuitarSpec spec, double price)
     {
         this.serialNumber = serialNumber;
