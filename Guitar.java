@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Guitar
 {
-    private String serialNumber, model, builder, type, backwood, topwood;
+    private String serialNumber, model, type, backwood, topwood;
+    String builder;
     private double price;
-
     public Guitar(String serialNumber,
                 String model,
                 String builder,
@@ -29,7 +29,7 @@ public class Guitar
         return serialNumber;
     }
 
-    public double getprice()
+    public double getPrice()
     {
         return price;
     }
@@ -63,4 +63,5 @@ public class Guitar
     {
         return topwood;
     }
+
 }
